@@ -1,3 +1,4 @@
+import controller.SchoolClassController;
 import view.Menu;
 import view.MenuType;
 
@@ -18,11 +19,12 @@ public class Main {
     }
 
     static void handleClasses() {
+        SchoolClassController controller = new SchoolClassController();
         do {
             int classesMenu = menu.show(MenuType.CLASS);
             switch (classesMenu) {
                 case 1:
-                    System.out.println("TODO: Show all classes"); break;
+                    controller.getAll(); break;
                 case 2:
                     System.out.println("TODO: Add class"); break;
                 case 3:

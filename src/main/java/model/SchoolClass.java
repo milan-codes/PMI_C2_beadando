@@ -10,6 +10,9 @@ public class SchoolClass {
     private String day;
     private String time;
 
+    public SchoolClass() {
+    }
+
     public SchoolClass(String name, String teacher, String classRoom, String day, String time) {
         this.name = name;
         this.teacher = teacher;
@@ -60,5 +63,11 @@ public class SchoolClass {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public static class SchoolClassFactory implements Factory<SchoolClass> {
+        public SchoolClass factory() {
+            return new SchoolClass();
+        }
     }
 }
