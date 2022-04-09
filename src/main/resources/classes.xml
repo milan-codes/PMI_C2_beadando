@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<classes>
+    <schoolclass>
+        <id>1</id>
+        <name>TestClass</name>
+        <teacher>John Doe</teacher>
+        <classroom>E/421</classroom>
+        <day>Monday</day>
+        <time>10:00</time>
+    </schoolclass>
+</classes>
