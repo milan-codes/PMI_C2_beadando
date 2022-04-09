@@ -1,5 +1,5 @@
-import menu.Menu;
-import menu.MenuType;
+import view.Menu;
+import view.MenuType;
 
 public class Main {
     private static final Menu menu = Menu.getInstance();
