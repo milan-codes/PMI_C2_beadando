@@ -1,9 +1,6 @@
 package model;
 
-import java.util.UUID;
-
 public class SchoolClass {
-    private final UUID id = UUID.randomUUID();
     private String name;
     private String teacher;
     private String classroom;
@@ -19,10 +16,6 @@ public class SchoolClass {
         this.classroom = classRoom;
         this.day = day;
         this.time = time;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public String getName() {
@@ -63,6 +56,17 @@ public class SchoolClass {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: ").append(name).append("\n");
+        sb.append("Teacher: ").append(teacher).append("\n");
+        sb.append("Classroom: ").append(classroom).append("\n");
+        sb.append("Day: ").append(day).append("\n");
+        sb.append("Time: ").append(time).append("\n");
+        return sb.toString();
     }
 
     public static class SchoolClassFactory implements Factory<SchoolClass> {

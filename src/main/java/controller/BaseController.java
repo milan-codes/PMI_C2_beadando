@@ -11,11 +11,11 @@ import java.util.UUID;
 public abstract class BaseController<T> {
     public abstract ArrayList<T> getAll();
 
-    public abstract T getById(UUID id);
+    public abstract T getByName(String name);
 
-    public abstract T create();
+    public abstract T create(T newObj);
 
-    public abstract T update(UUID id);
+    public abstract T update(String name);
 
-    public abstract void delete(UUID id);
+    public abstract void delete(String name);
 }

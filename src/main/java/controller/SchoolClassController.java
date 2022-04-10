@@ -4,7 +4,6 @@ import model.SchoolClass;
 import utils.XMLReader;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * {@link controller.BaseController} subclass.
@@ -20,22 +19,24 @@ public class SchoolClassController extends BaseController<SchoolClass> {
     }
 
     @Override
-    public SchoolClass getById(UUID id) {
+    public SchoolClass getByName(String name) {
+        XMLReader<SchoolClass> reader = new XMLReader<>("src/main/resources/classes.xml", new SchoolClass.SchoolClassFactory());
+        reader.read();
+        return reader.getList().stream().filter(schoolClass -> schoolClass.getName().equals(name)).findFirst().orElse(null);
+    }
+
+    @Override
+    public SchoolClass create(SchoolClass newObj) {
         return null;
     }
 
     @Override
-    public SchoolClass create() {
+    public SchoolClass update(String name) {
         return null;
     }
 
     @Override
-    public SchoolClass update(UUID id) {
-        return null;
-    }
-
-    @Override
-    public void delete(UUID id) {
+    public void delete(String name) {
 
     }
 }

@@ -83,9 +83,7 @@ public class XMLReader<T> {
                     for (int j = 0; j < grandChildNodes.getLength(); j++) {
                         Node grandChildNode = grandChildNodes.item(j);
                         if (grandChildNode.getNodeType() == Node.ELEMENT_NODE) {
-                            if (!grandChildNode.getNodeName().equals("id")) {
-                                invokeSetter(obj, UtilFunctions.capitalizeFirstLetter(grandChildNode.getNodeName()), grandChildNode.getTextContent());
-                            }
+                            invokeSetter(obj, UtilFunctions.capitalizeFirstLetter(grandChildNode.getNodeName()), grandChildNode.getTextContent());
                         }
                     }
                     list.add(obj);
