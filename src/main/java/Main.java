@@ -59,7 +59,19 @@ public class Main {
                     System.out.println("CLASS CREATED");
                     break;
                 case 4:
-                    System.out.println("TODO: Edit class");
+                    classes = controller.getAll();
+                    for (SchoolClass schoolClass : classes) {
+                        System.out.println(schoolClass.getName());
+                    }
+                    target = menu.getTargetName(MenuType.CLASS);
+                    SchoolClass classToEdit = controller.getByName(target);
+                    if (classToEdit != null) {
+                        System.out.println("EDITING CLASS " + classToEdit.getName());
+                        SchoolClass editedClass = menu.getSchoolClass();
+                        controller.update(classToEdit, editedClass);
+                        break;
+                    }
+                    System.out.println("No class found with name: " + target);
                     break;
                 case 5:
                     classes = controller.getAll();

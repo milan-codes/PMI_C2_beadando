@@ -23,6 +23,11 @@ public class SchoolClassController extends BaseController<SchoolClass> {
         list = reader.getList();
     }
 
+    private void saveList() {
+        XMLWriter<SchoolClass> writer = new XMLWriter<>("src/main/resources/classes.xml", new SchoolClass.SchoolClassFactory(), list);
+        writer.write();
+    }
+
     @Override
     public ArrayList<SchoolClass> getAll() {
         updateList();
@@ -38,14 +43,18 @@ public class SchoolClassController extends BaseController<SchoolClass> {
     @Override
     public SchoolClass create(SchoolClass newObj) {
         list.add(newObj);
-        XMLWriter<SchoolClass> writer = new XMLWriter<>("src/main/resources/classes.xml", new SchoolClass.SchoolClassFactory(), list);
-        writer.write();
+        saveList();
         return newObj;
     }
 
     @Override
-    public SchoolClass update(String name) {
-        return null;
+    public SchoolClass update(SchoolClass objToRemove, SchoolClass newObj) {
+        updateList();
+        list.removeIf(schoolClass -> schoolClass.getName().equals(objToRemove.getName()));
+        list.add(newObj);
+        saveList();
+
+        return newObj;
     }
 
     @Override
