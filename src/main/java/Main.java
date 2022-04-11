@@ -3,6 +3,8 @@ import model.SchoolClass;
 import view.Menu;
 import view.MenuType;
 
+import java.util.ArrayList;
+
 public class Main {
     private static final Menu menu = Menu.getInstance();
 
@@ -29,14 +31,20 @@ public class Main {
 
     static void handleClasses() {
         SchoolClassController controller = new SchoolClassController();
+        ArrayList<SchoolClass> classes;
+        String target;
         do {
             int classesMenu = menu.show(MenuType.CLASS);
+
             switch (classesMenu) {
                 case 1:
-                    controller.getAll();
+                    classes = controller.getAll();
+                    for (SchoolClass schoolClass : classes) {
+                        System.out.println(schoolClass.getName());
+                    }
                     break;
                 case 2:
-                    String target = menu.getTargetName(MenuType.CLASS);
+                    target = menu.getTargetName(MenuType.CLASS);
                     SchoolClass result = controller.getByName(target);
                     if (result != null) {
                         System.out.println("CLASS FOUND");
@@ -51,9 +59,22 @@ public class Main {
                     System.out.println("CLASS CREATED");
                     break;
                 case 4:
-                    System.out.println("TODO: Remove class");
+                    System.out.println("TODO: Edit class");
                     break;
                 case 5:
+                    classes = controller.getAll();
+                    for (SchoolClass schoolClass : classes) {
+                        System.out.println(schoolClass.getName());
+                    }
+                    target = menu.getTargetName(MenuType.CLASS);
+                    SchoolClass classToDelete = controller.getByName(target);
+                    if (classToDelete != null) {
+                        System.out.println("DELETING CLASS " + classToDelete.getName());
+                        controller.delete(classToDelete.getName());
+                        break;
+                    }
+                    System.out.println("No class found with name: " + target);
+                case 6:
                     return;
                 default:
                     System.out.println("Invalid input");

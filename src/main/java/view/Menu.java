@@ -64,16 +64,16 @@ public class Menu {
         System.out.print("Enter class name: ");
         schoolClass.setName(scanner.nextLine());
 
-        System.out.print("\nEnter class teacher: ");
+        System.out.print("Enter class teacher: ");
         schoolClass.setTeacher(scanner.nextLine());
 
-        System.out.print("\nEnter class room: ");
+        System.out.print("Enter class room: ");
         schoolClass.setClassroom(scanner.nextLine());
 
-        System.out.print("\nEnter a day on which the class is held: ");
+        System.out.print("Enter a day on which the class is held: ");
         schoolClass.setDay(scanner.nextLine());
 
-        System.out.print("\nEnter the time on which the class starts: ");
+        System.out.print("Enter the time on which the class starts: ");
         schoolClass.setTime(scanner.nextLine());
 
         return schoolClass;

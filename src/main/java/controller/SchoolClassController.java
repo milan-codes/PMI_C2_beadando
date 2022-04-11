@@ -50,6 +50,9 @@ public class SchoolClassController extends BaseController<SchoolClass> {
 
     @Override
     public void delete(String name) {
-
+        updateList();
+        list.removeIf(schoolClass -> schoolClass.getName().equals(name));
+        XMLWriter<SchoolClass> writer = new XMLWriter<>("src/main/resources/classes.xml", new SchoolClass.SchoolClassFactory(), list);
+        writer.write();
     }
 }
