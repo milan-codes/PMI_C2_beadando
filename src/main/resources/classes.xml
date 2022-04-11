@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schoolclass-root>
+    <schoolclass>
+        <Name>TestClass</Name>
+        <Time>TestTime</Time>
+        <Day>TestDay</Day>
+        <Teacher>TestTeacher</Teacher>
+        <Classroom>TestRoom</Classroom>
+    </schoolclass>
+    <schoolclass>
+        <Name>Teszt osztály 1</Name>
+        <Time>Monday</Time>
+        <Day>11:00</Day>
+        <Teacher>Tszt tanár</Teacher>
+        <Classroom>Teszt szoba</Classroom>
+    </schoolclass>
+</schoolclass-root>
