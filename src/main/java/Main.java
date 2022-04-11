@@ -1,9 +1,6 @@
-import controller.SchoolClassController;
-import model.SchoolClass;
 import view.Menu;
 import view.MenuType;
-
-import java.util.ArrayList;
+import view.submenu.SchoolClassSubMenu;
 
 public class Main {
     private static final Menu menu = Menu.getInstance();
@@ -30,62 +27,25 @@ public class Main {
     }
 
     static void handleClasses() {
-        SchoolClassController controller = new SchoolClassController();
-        ArrayList<SchoolClass> classes;
-        String target;
+        SchoolClassSubMenu schoolClassSubMenu = new SchoolClassSubMenu();
         do {
             int classesMenu = menu.show(MenuType.CLASS);
-
             switch (classesMenu) {
                 case 1:
-                    classes = controller.getAll();
-                    for (SchoolClass schoolClass : classes) {
-                        System.out.println(schoolClass.getName());
-                    }
+                    schoolClassSubMenu.onGetAll();
                     break;
                 case 2:
-                    target = menu.getTargetName(MenuType.CLASS);
-                    SchoolClass result = controller.getByName(target);
-                    if (result != null) {
-                        System.out.println("CLASS FOUND");
-                        System.out.println(result);
-                        break;
-                    }
-                    System.out.println("No class found with name: " + target);
+                    schoolClassSubMenu.onGetByName();
                     break;
                 case 3:
-                    SchoolClass userClass = menu.getSchoolClass();
-                    controller.create(userClass);
-                    System.out.println("CLASS CREATED");
+                    schoolClassSubMenu.onCreate();
                     break;
                 case 4:
-                    classes = controller.getAll();
-                    for (SchoolClass schoolClass : classes) {
-                        System.out.println(schoolClass.getName());
-                    }
-                    target = menu.getTargetName(MenuType.CLASS);
-                    SchoolClass classToEdit = controller.getByName(target);
-                    if (classToEdit != null) {
-                        System.out.println("EDITING CLASS " + classToEdit.getName());
-                        SchoolClass editedClass = menu.getSchoolClass();
-                        controller.update(classToEdit, editedClass);
-                        break;
-                    }
-                    System.out.println("No class found with name: " + target);
+                    schoolClassSubMenu.onUpdate();
                     break;
                 case 5:
-                    classes = controller.getAll();
-                    for (SchoolClass schoolClass : classes) {
-                        System.out.println(schoolClass.getName());
-                    }
-                    target = menu.getTargetName(MenuType.CLASS);
-                    SchoolClass classToDelete = controller.getByName(target);
-                    if (classToDelete != null) {
-                        System.out.println("DELETING CLASS " + classToDelete.getName());
-                        controller.delete(classToDelete.getName());
-                        break;
-                    }
-                    System.out.println("No class found with name: " + target);
+                    schoolClassSubMenu.onDelete();
+                    break;
                 case 6:
                     return;
                 default:
