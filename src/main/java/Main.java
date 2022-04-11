@@ -1,5 +1,6 @@
 import view.Menu;
 import view.MenuType;
+import view.submenu.ExamSubMenu;
 import view.submenu.SchoolClassSubMenu;
 import view.submenu.TaskSubMenu;
 
@@ -85,22 +86,26 @@ public class Main {
     }
 
     static void handleExams() {
+        ExamSubMenu examSubMenu = new ExamSubMenu();
         do {
             int examsMenu = menu.show(MenuType.EXAM);
             switch (examsMenu) {
                 case 1:
-                    System.out.println("TODO: Show all exams");
+                    examSubMenu.onGetAll();
                     break;
                 case 2:
-                    System.out.println("TODO: Add exam");
+                    examSubMenu.onGetByName();
                     break;
                 case 3:
-                    System.out.println("TODO: Edit exam");
+                    examSubMenu.onCreate();
                     break;
                 case 4:
-                    System.out.println("TODO: Remove exam");
+                    examSubMenu.onUpdate();
                     break;
                 case 5:
+                    examSubMenu.onDelete();
+                    break;
+                case 6:
                     return;
                 default:
                     System.out.println("Invalid input");
