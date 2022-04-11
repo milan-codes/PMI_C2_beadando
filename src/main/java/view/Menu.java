@@ -1,4 +1,6 @@
-package menu;
+package view;
+
+import model.SchoolClass;
 
 import java.util.Scanner;
 
@@ -12,7 +14,7 @@ public class Menu {
     private final Scanner scanner = new Scanner(System.in);
 
     private final String[] mainMenuText = {"<1> Manage classes", "<2> Manage tasks", "<3> Manage exams", "<4> Exit program"};
-    private final String[] subMenuText = {"<1> Show all", "<2> Add", "<3> Edit", "<4> Remove", "<5> Go back"};
+    private final String[] subMenuText = {"<1> Show all", "<2> Get by name", "<3> Add", "<4> Edit", "<5> Remove", "<6> Go back"};
 
     private Menu() {
         printGreeting();
@@ -30,9 +32,10 @@ public class Menu {
     }
 
     public int show(MenuType type) {
+        int result = -1;
         System.out.printf("MANAGE %s\n", type.name());
         System.out.println("-------------------------");
-        if(type != MenuType.MAIN) {
+        if (type != MenuType.MAIN) {
             for (String subMenuItem : subMenuText) {
                 System.out.println(subMenuItem);
             }
@@ -43,6 +46,10 @@ public class Menu {
         }
         System.out.println("-------------------------");
         System.out.print("Enter your choice: ");
-        return scanner.nextInt();
+        if (scanner.hasNextInt()) {
+            result = scanner.nextInt();
+        }
+        scanner.nextLine();
+        return result;
     }
 }

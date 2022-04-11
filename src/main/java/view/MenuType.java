@@ -1,4 +1,4 @@
-package menu;
+package view;
 
 public enum MenuType {
     MAIN,

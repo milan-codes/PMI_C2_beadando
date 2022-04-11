@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schoolclass-root>
+    <schoolclass>
+        <Name>Test class</Name>
+        <Time>9:00</Time>
+        <Day>Monday</Day>
+        <Teacher>Test teacger</Teacher>
+        <Classroom>fasdfsad</Classroom>
+    </schoolclass>
+    <schoolclass>
+        <Name>Test class 2</Name>
+        <Time>fdsafsa</Time>
+        <Day>fsdafa</Day>
+        <Teacher>fdfasf</Teacher>
+        <Classroom>fdsafsa</Classroom>
+    </schoolclass>
+</schoolclass-root>
