@@ -46,7 +46,9 @@ public class Main {
                     System.out.println("No class found with name: " + target);
                     break;
                 case 3:
-                    System.out.println("TODO: Edit class");
+                    SchoolClass userClass = menu.getSchoolClass();
+                    controller.create(userClass);
+                    System.out.println("CLASS CREATED");
                     break;
                 case 4:
                     System.out.println("TODO: Remove class");

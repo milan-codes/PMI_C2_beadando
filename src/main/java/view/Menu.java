@@ -1,5 +1,7 @@
 package view;
 
+import model.SchoolClass;
+
 import java.util.Scanner;
 
 /**
@@ -54,5 +56,26 @@ public class Menu {
     public String getTargetName(MenuType type) {
         System.out.printf("Enter a %s name: ", type.name());
         return scanner.nextLine();
+    }
+
+    public SchoolClass getSchoolClass() {
+        SchoolClass schoolClass = new SchoolClass();
+
+        System.out.print("Enter class name: ");
+        schoolClass.setName(scanner.nextLine());
+
+        System.out.print("\nEnter class teacher: ");
+        schoolClass.setTeacher(scanner.nextLine());
+
+        System.out.print("\nEnter class room: ");
+        schoolClass.setClassroom(scanner.nextLine());
+
+        System.out.print("\nEnter a day on which the class is held: ");
+        schoolClass.setDay(scanner.nextLine());
+
+        System.out.print("\nEnter the time on which the class starts: ");
+        schoolClass.setTime(scanner.nextLine());
+
+        return schoolClass;
     }
 }

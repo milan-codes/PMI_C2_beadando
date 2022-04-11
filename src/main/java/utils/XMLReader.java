@@ -9,9 +9,11 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * This class is used to read XML files
@@ -67,6 +69,7 @@ public class XMLReader<T> {
      * This method is used to read the XML file and create the objects
      */
     public void read() {
+        T obj = fact.factory();
         try {
             InputStream inputStream = new FileInputStream(filePath);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -79,7 +82,6 @@ public class XMLReader<T> {
                 Node node = childNodes.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     NodeList grandChildNodes = node.getChildNodes();
-                    T obj = fact.factory();
                     for (int j = 0; j < grandChildNodes.getLength(); j++) {
                         Node grandChildNode = grandChildNodes.item(j);
                         if (grandChildNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -89,6 +91,8 @@ public class XMLReader<T> {
                     list.add(obj);
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.out.printf("No %s file has been found.", obj.getClass().getSimpleName());
         } catch (Exception e) {
             e.printStackTrace();
         }
