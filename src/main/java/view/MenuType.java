@@ -3,6 +3,6 @@ package view;
 public enum MenuType {
     MAIN,
     CLASS,
-    ASSIGNMENT,
+    TASK,
     EXAM;
 }
