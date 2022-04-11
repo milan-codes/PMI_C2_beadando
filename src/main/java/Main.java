@@ -1,6 +1,7 @@
 import view.Menu;
 import view.MenuType;
 import view.submenu.SchoolClassSubMenu;
+import view.submenu.TaskSubMenu;
 
 public class Main {
     private static final Menu menu = Menu.getInstance();
@@ -13,7 +14,7 @@ public class Main {
                     handleClasses();
                     break;
                 case 2:
-                    handleAssignments();
+                    handleTasks();
                     break;
                 case 3:
                     handleExams();
@@ -55,23 +56,27 @@ public class Main {
 
     }
 
-    static void handleAssignments() {
+    static void handleTasks() {
+        TaskSubMenu taskSubMenu = new TaskSubMenu();
         do {
-            int assignmentsMenu = menu.show(MenuType.ASSIGNMENT);
-            switch (assignmentsMenu) {
+            int tasksMenu = menu.show(MenuType.TASK);
+            switch (tasksMenu) {
                 case 1:
-                    System.out.println("TODO: Show all assignments");
+                    taskSubMenu.onGetAll();
                     break;
                 case 2:
-                    System.out.println("TODO: Add assignment");
+                    taskSubMenu.onGetByName();
                     break;
                 case 3:
-                    System.out.println("TODO: Edit assignment");
+                    taskSubMenu.onCreate();
                     break;
                 case 4:
-                    System.out.println("TODO: Remove assignment");
+                    taskSubMenu.onUpdate();
                     break;
                 case 5:
+                    taskSubMenu.onDelete();
+                    break;
+                case 6:
                     return;
                 default:
                     System.out.println("Invalid input");
