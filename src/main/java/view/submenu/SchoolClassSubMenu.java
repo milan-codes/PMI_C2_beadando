@@ -76,7 +76,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
     }
 
     @Override
-    SchoolClass getNewObj() {
+    protected SchoolClass getNewObj() {
         Scanner scanner = new Scanner(System.in);
         SchoolClass schoolClass = new SchoolClass();
 

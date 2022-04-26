@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class XMLReader<T> {
     /**
-     * Objects created from the XML file
+     * List of objects created from the XML file
      */
     private final ArrayList<T> list;
     /**
@@ -33,6 +33,12 @@ public class XMLReader<T> {
      */
     private final String filePath;
 
+    /**
+     * Constructor
+     *
+     * @param filePath Path of the XML file
+     * @param fact Factory interface of the model class T
+     */
     public XMLReader(String filePath, Factory<T> fact) {
         this.filePath = filePath;
         this.fact = fact;

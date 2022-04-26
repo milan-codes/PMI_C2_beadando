@@ -76,7 +76,7 @@ public class TaskSubMenu extends BaseSubMenu<Task> {
     }
 
     @Override
-    Task getNewObj() {
+    protected Task getNewObj() {
         Scanner scanner = new Scanner(System.in);
         Task task = new Task();
 

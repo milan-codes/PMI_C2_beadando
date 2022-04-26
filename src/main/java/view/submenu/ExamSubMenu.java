@@ -76,7 +76,7 @@ public class ExamSubMenu extends BaseSubMenu<Exam> {
     }
 
     @Override
-    Exam getNewObj() {
+    protected Exam getNewObj() {
         Scanner scanner = new Scanner(System.in);
         Exam exam = new Exam();
 

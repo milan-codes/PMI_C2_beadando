@@ -16,16 +16,28 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class XMLWriter<T> {
+    /**
+     * List of objects to be written to XML
+     */
     private final ArrayList<T> list;
+    /**
+     * Factory interface of class T
+     */
     private final Factory<T> fact;
+    /**
+     * Path to XML file
+     */
     private final String filePath;
+    /**
+     * Properties of class T
+     */
     private final ArrayList<String> properties;
 
     /**
      * Constructor
      *
      * @param list     ArrayList of objects to be written to XML
-     * @param fact     Factory interface of the model class T
+     * @param fact     Factory interface of class T
      * @param filePath Path of the XML file
      */
     public XMLWriter(String filePath, Factory<T> fact, ArrayList<T> list) {
@@ -35,6 +47,11 @@ public class XMLWriter<T> {
         this.properties = new ArrayList<>();
     }
 
+    /**
+     * Gets properties of an object
+     *
+     * @param object Object to get properties from
+     */
     private void getProperties(Object object) {
         for (Method method : object.getClass().getMethods()) {
             if (method.getName().startsWith("get")) {
@@ -43,6 +60,12 @@ public class XMLWriter<T> {
         }
     }
 
+    /**
+     * This method is used to invoke the getter methods of an object
+     *
+     * @param object Object which getters are to be invoked
+     * @param property Method to be invoked
+     */
     private String invokeGetter(Object object, String property) {
         try {
             Method method = object.getClass().getMethod("get" + property);
@@ -54,6 +77,9 @@ public class XMLWriter<T> {
         return null;
     }
 
+    /**
+     * This method is used to write objects to XML
+     */
     public void write() {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
