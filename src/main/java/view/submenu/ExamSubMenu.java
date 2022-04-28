@@ -7,6 +7,9 @@ import view.MenuType;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static utils.UtilFunctions.isValidDate;
+import static utils.UtilFunctions.isValidTime;
+
 public class ExamSubMenu extends BaseSubMenu<Exam> {
     private final ExamController controller = new ExamController();
     private ArrayList<Exam> exams;
@@ -89,14 +92,42 @@ public class ExamSubMenu extends BaseSubMenu<Exam> {
         System.out.print("Enter exam classroom: ");
         exam.setClassroom(scanner.nextLine());
 
-        System.out.print("Enter exam duration: ");
-        exam.setDuration(scanner.nextLine());
+        int num = -1;
+        do {
+            System.out.print("Enter exam duration in minutes: ");
+            if (scanner.hasNextInt()) {
+                num = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                scanner.nextLine();
+                System.out.println("Input must be an integer");
+            }
+            if (num < 0) {
+                System.out.println("Duration must be positive");
+            }
+        } while (num < 0);
+        exam.setDuration(String.valueOf(num));
 
-        System.out.print("Enter exam date: ");
-        exam.setDate(scanner.nextLine());
+        String date;
+        do {
+            System.out.print("Enter exam date in dd/MM/yyyy format: ");
+            date = scanner.nextLine();
+            if (!isValidDate(date)) {
+                System.out.println("Invalid date format");
+            }
+        } while(!isValidDate(date));
+        exam.setDate(date);
 
-        System.out.print("Enter exam time: ");
-        exam.setTime(scanner.nextLine());
+        String time;
+        do {
+            System.out.print("Enter exam time in HH:mm format: ");
+            time = scanner.nextLine();
+
+            if (!isValidTime(time)) {
+                System.out.println("Invalid time");
+            }
+        } while (!isValidTime(time));
+        exam.setTime(time);
 
         return exam;
     }

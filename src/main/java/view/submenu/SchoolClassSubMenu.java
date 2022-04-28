@@ -6,6 +6,8 @@ import view.MenuType;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import static utils.UtilFunctions.isValidDay;
+import static utils.UtilFunctions.isValidTime;
 
 public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
     private final SchoolClassController controller = new SchoolClassController();
@@ -89,11 +91,27 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
         System.out.print("Enter class room: ");
         schoolClass.setClassroom(scanner.nextLine());
 
-        System.out.print("Enter a day on which the class is held: ");
-        schoolClass.setDay(scanner.nextLine());
+        String day;
+        do {
+            System.out.print("Enter a day on which the class is held: ");
+            day = scanner.nextLine();
 
-        System.out.print("Enter the time on which the class starts: ");
-        schoolClass.setTime(scanner.nextLine());
+            if (!isValidDay(day)) {
+                System.out.println("Invalid day");
+            }
+        } while (!isValidDay(day));
+        schoolClass.setDay(day);
+
+        String time;
+        do {
+            System.out.print("Enter the time on which the class starts in HH:mm format: ");
+            time = scanner.nextLine();
+
+            if (!isValidTime(time)) {
+                System.out.println("Invalid time");
+            }
+        } while (!isValidTime(time));
+        schoolClass.setTime(time);
 
         return schoolClass;
     }

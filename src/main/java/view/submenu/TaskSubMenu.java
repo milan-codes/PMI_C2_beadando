@@ -7,6 +7,8 @@ import view.MenuType;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static utils.UtilFunctions.isValidDate;
+
 public class TaskSubMenu extends BaseSubMenu<Task> {
     private final TaskController controller = new TaskController();
     private ArrayList<Task> tasks;
@@ -86,8 +88,15 @@ public class TaskSubMenu extends BaseSubMenu<Task> {
         System.out.print("Enter task description:");
         task.setDescription(scanner.nextLine());
 
-        System.out.print("Enter task due date:");
-        task.setDueDate(scanner.nextLine());
+        String date;
+        do {
+            System.out.print("Enter task due date in dd/MM/yyyy format: ");
+            date = scanner.nextLine();
+            if (!isValidDate(date)) {
+                System.out.println("Invalid date format");
+            }
+        } while(!isValidDate(date));
+        task.setDueDate(date);
 
         System.out.print("Enter task status:");
         task.setStatus(scanner.nextLine());
