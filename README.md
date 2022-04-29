@@ -118,11 +118,15 @@ MANAGE CLASS
 Enter your choice: 
 ```
 The options are:
-1. `Show all`: prints only the names of all saved classes
-2. `Get by name`: asks for a name, and then searches for a class with that name. If found, it prints all available information about that particular class. If a class with that name is not found, it prints an error message.
-3. `Add`: Prints a form to the user, and then saves the class with the retrieved information to the database
-4. `Edit`: Prints the name of the saved classes. Users then will have to enter the name of the class they want to edit. After that the flow is the same as option `<3>`
+1. `Show all`: Prints only the names of all saved classes.
+2. `Get by name`: Asks for a name, and then searches for a class with that name. If found, it prints all available information about that particular class. If a class with that name is not found, it prints an error message.
+3. `Add`: Prints a form to the user, and then saves the class with the retrieved information to the database.
+4. `Edit`: Prints the name of the saved classes. Users then will have to enter the name of the class they want to edit. After that the flow is the same as option `<3>`.
 5. `Remove`: Prints the name of the saved classes. Users then will have to enter the name of the class they want to remove.
-6. `Go back`: returns to the main menu
+6. `Go back`: Returns to the main menu.
 
 The same applies when working with exams and tasks.
+
+## Notes
+- Minimum JDK: 14
+- Documentation of what each method, in a specific class, does can be found inside the files.
