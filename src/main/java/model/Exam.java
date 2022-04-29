@@ -1,11 +1,29 @@
 package model;
 
 public class Exam {
+    /**
+     * The name of the exam.
+     */
     private String name;
+    /**
+     * The description of the exam.
+     */
     private String description;
+    /**
+     * The classroom in which the exam will be held.
+     */
     private String classroom;
+    /**
+     * The duration of the exam.
+     */
     private String duration;
+    /**
+     * The date of the exam.
+     */
     private String date;
+    /**
+     * The time of the exam.
+     */
     private String time;
 
     public Exam() {
@@ -81,6 +99,9 @@ public class Exam {
         return sb.toString();
     }
 
+    /**
+     * Static class to create an exam without exposing the creation logic
+     */
     public static class ExamFactory implements Factory<Exam> {
         public Exam factory() {
             return new Exam();

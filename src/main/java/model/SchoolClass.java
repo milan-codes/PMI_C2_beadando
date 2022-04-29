@@ -1,10 +1,25 @@
 package model;
 
 public class SchoolClass {
+    /**
+     * The name of the class.
+     */
     private String name;
+    /**
+     * The teacher of the class.
+     */
     private String teacher;
+    /**
+     * The room in which the class is held.
+     */
     private String classroom;
+    /**
+     * The day of the week the class is held.
+     */
     private String day;
+    /**
+     * The time of the class.
+     */
     private String time;
 
     public SchoolClass() {
@@ -69,6 +84,9 @@ public class SchoolClass {
         return sb.toString();
     }
 
+    /**
+     * Static class to create an exam without exposing the creation logic
+     */
     public static class SchoolClassFactory implements Factory<SchoolClass> {
         public SchoolClass factory() {
             return new SchoolClass();
