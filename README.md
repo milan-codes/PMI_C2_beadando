@@ -12,6 +12,7 @@ and therefore make them more productive. This project does not have a GUI, users
   - [Exam](#exam)
   - [Task](#task)
 - [Usage](#usage)
+- [Notes](#notes)
 
 ## Project architecture
 The project contains four packages in the source directory and the entry point `Main.java`. The packages are: `model`, `view`, `controller` and `utils`.
