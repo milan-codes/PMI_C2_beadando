@@ -19,10 +19,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
 
     @Override
     public void onGetAll() {
-        classes = controller.getAll();
-        for (SchoolClass schoolClass : classes) {
-            System.out.println(schoolClass.getName());
-        }
+        printClasses();
     }
 
     @Override
@@ -46,10 +43,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
 
     @Override
     public void onUpdate() {
-        classes = controller.getAll();
-        for (SchoolClass schoolClass : classes) {
-            System.out.println(schoolClass.getName());
-        }
+        printClasses();
         String target = getTargetName(MenuType.CLASS);
         SchoolClass classToEdit = controller.getByName(target);
         if (classToEdit != null) {
@@ -63,10 +57,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
 
     @Override
     public void onDelete() {
-        classes = controller.getAll();
-        for (SchoolClass schoolClass : classes) {
-            System.out.println(schoolClass.getName());
-        }
+        printClasses();
         String target = getTargetName(MenuType.CLASS);
         SchoolClass classToDelete = controller.getByName(target);
         if (classToDelete != null) {
@@ -114,5 +105,12 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
         schoolClass.setTime(time);
 
         return schoolClass;
+    }
+
+    private void printClasses() {
+        classes = controller.getAll();
+        for (SchoolClass schoolClass : classes) {
+            System.out.println(schoolClass.getName());
+        }
     }
 }

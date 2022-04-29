@@ -19,10 +19,7 @@ public class TaskSubMenu extends BaseSubMenu<Task> {
 
     @Override
     public void onGetAll() {
-        tasks = controller.getAll();
-        for (Task task : tasks) {
-            System.out.println(task.getName());
-        }
+        printTasks();
     }
 
     @Override
@@ -46,10 +43,7 @@ public class TaskSubMenu extends BaseSubMenu<Task> {
 
     @Override
     public void onUpdate() {
-        tasks = controller.getAll();
-        for (Task task : tasks) {
-            System.out.println(task.getName());
-        }
+        printTasks();
         String target = getTargetName(MenuType.TASK);
         Task taskToEdit = controller.getByName(target);
         if (taskToEdit != null) {
@@ -63,10 +57,7 @@ public class TaskSubMenu extends BaseSubMenu<Task> {
 
     @Override
     public void onDelete() {
-        tasks = controller.getAll();
-        for (Task task : tasks) {
-            System.out.println(task.getName());
-        }
+        printTasks();
         String target = getTargetName(MenuType.TASK);
         Task taskToDelete = controller.getByName(target);
         if (taskToDelete != null) {
@@ -102,5 +93,12 @@ public class TaskSubMenu extends BaseSubMenu<Task> {
         task.setStatus(scanner.nextLine());
 
         return task;
+    }
+
+    private void printTasks() {
+        tasks = controller.getAll();
+        for (Task task : tasks) {
+            System.out.println(task.getName());
+        }
     }
 }

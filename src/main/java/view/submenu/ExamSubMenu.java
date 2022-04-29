@@ -20,10 +20,7 @@ public class ExamSubMenu extends BaseSubMenu<Exam> {
 
     @Override
     public void onGetAll() {
-        exams = controller.getAll();
-        for (Exam exam : exams) {
-            System.out.println(exam.getName());
-        }
+        printExams();
     }
 
     @Override
@@ -47,10 +44,7 @@ public class ExamSubMenu extends BaseSubMenu<Exam> {
 
     @Override
     public void onUpdate() {
-        exams = controller.getAll();
-        for (Exam exam : exams) {
-            System.out.println(exam.getName());
-        }
+        printExams();
         String target = getTargetName(MenuType.EXAM);
         Exam examToEdit = controller.getByName(target);
         if (examToEdit != null) {
@@ -64,10 +58,7 @@ public class ExamSubMenu extends BaseSubMenu<Exam> {
 
     @Override
     public void onDelete() {
-        exams = controller.getAll();
-        for (Exam exam : exams) {
-            System.out.println(exam.getName());
-        }
+        printExams();
         String target = getTargetName(MenuType.EXAM);
         Exam examToDelete = controller.getByName(target);
         if (examToDelete != null) {
@@ -130,5 +121,12 @@ public class ExamSubMenu extends BaseSubMenu<Exam> {
         exam.setTime(time);
 
         return exam;
+    }
+
+    private void printExams() {
+        exams = controller.getAll();
+        for (Exam exam : exams) {
+            System.out.println(exam.getName());
+        }
     }
 }
