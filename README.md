@@ -130,4 +130,4 @@ The same applies when working with exams and tasks.
 
 ## Notes
 - Minimum JDK: 14
-- Documentation of what each method, in a specific class, does can be found inside the files.
+- Documentation of what each method, in a specific class, does, can be found inside the files.
