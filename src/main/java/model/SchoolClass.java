@@ -85,7 +85,7 @@ public class SchoolClass {
     }
 
     /**
-     * Static class to create an exam without exposing the creation logic
+     * Static class to create a school class without exposing the creation logic
      */
     public static class SchoolClassFactory implements Factory<SchoolClass> {
         public SchoolClass factory() {

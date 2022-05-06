@@ -71,7 +71,7 @@ public class Task {
     }
 
     /**
-     * Static class to create an exam without exposing the creation logic
+     * Static class to create a task without exposing the creation logic
      */
     public static class TaskFactory implements Factory<Task> {
         public Task factory() {
