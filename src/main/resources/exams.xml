@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<exam-root/>
+<exam-root>
+    <exam>
+        <Name>fadsfasdf</Name>
+        <Time>09:00</Time>
+        <Description>fasdfasdfs</Description>
+        <Duration>90</Duration>
+        <Classroom>fdsfsadfsda</Classroom>
+        <Date>12/12/2020</Date>
+    </exam>
+    <exam>
+        <Name>teszt</Name>
+        <Time>12:00</Time>
+        <Description>fasfasd</Description>
+        <Duration>30</Duration>
+        <Classroom>fasdfsadf</Classroom>
+        <Date>12/12/2020</Date>
+    </exam>
+</exam-root>

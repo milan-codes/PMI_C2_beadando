@@ -14,4 +14,11 @@
         <Teacher>fdfasf</Teacher>
         <Classroom>fdsafsa</Classroom>
     </schoolclass>
+    <schoolclass>
+        <Name>test 6</Name>
+        <Time>09:00</Time>
+        <Day>Monday</Day>
+        <Teacher>fdafadsf</Teacher>
+        <Classroom>fasdfas</Classroom>
+    </schoolclass>
 </schoolclass-root>

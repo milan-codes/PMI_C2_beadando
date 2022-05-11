@@ -1,7 +1,5 @@
 package view;
 
-import model.SchoolClass;
-
 import java.util.Scanner;
 
 /**
@@ -20,6 +18,11 @@ public class Menu {
         printGreeting();
     }
 
+    /**
+     * This method is used to get the instance of the menu.
+     *
+     * @return the instance of the menu
+     */
     public static Menu getInstance() {
         if (instance == null) {
             instance = new Menu();
@@ -27,10 +30,19 @@ public class Menu {
         return instance;
     }
 
+    /**
+     * This method is used to print the greeting to the user.
+     */
     private void printGreeting() {
         System.out.println("Hello, Friend!");
     }
 
+    /**
+     * This method is used to print the main menu.
+     *
+     * @param type the type of the menu
+     * @return the user's choice
+     */
     public int show(MenuType type) {
         int result = -1;
         System.out.printf("MANAGE %s\n", type.name());

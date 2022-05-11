@@ -1,9 +1,21 @@
 package model;
 
 public class Task {
+    /**
+     * The name of the task.
+     */
     private String name;
+    /**
+     * The description of the task.
+     */
     private String description;
+    /**
+     * The due date of the task.
+     */
     private String dueDate;
+    /**
+     * The status of the task.
+     */
     private String status;
 
     public Task() {
@@ -58,6 +70,9 @@ public class Task {
         return sb.toString();
     }
 
+    /**
+     * Static class to create a task without exposing the creation logic
+     */
     public static class TaskFactory implements Factory<Task> {
         public Task factory() {
             return new Task();

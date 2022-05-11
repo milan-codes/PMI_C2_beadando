@@ -6,6 +6,8 @@ import view.MenuType;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import static utils.UtilFunctions.isValidDay;
+import static utils.UtilFunctions.isValidTime;
 
 public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
     private final SchoolClassController controller = new SchoolClassController();
@@ -17,10 +19,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
 
     @Override
     public void onGetAll() {
-        classes = controller.getAll();
-        for (SchoolClass schoolClass : classes) {
-            System.out.println(schoolClass.getName());
-        }
+        printClasses();
     }
 
     @Override
@@ -44,10 +43,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
 
     @Override
     public void onUpdate() {
-        classes = controller.getAll();
-        for (SchoolClass schoolClass : classes) {
-            System.out.println(schoolClass.getName());
-        }
+        printClasses();
         String target = getTargetName(MenuType.CLASS);
         SchoolClass classToEdit = controller.getByName(target);
         if (classToEdit != null) {
@@ -61,10 +57,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
 
     @Override
     public void onDelete() {
-        classes = controller.getAll();
-        for (SchoolClass schoolClass : classes) {
-            System.out.println(schoolClass.getName());
-        }
+        printClasses();
         String target = getTargetName(MenuType.CLASS);
         SchoolClass classToDelete = controller.getByName(target);
         if (classToDelete != null) {
@@ -76,7 +69,7 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
     }
 
     @Override
-    SchoolClass getNewObj() {
+    protected SchoolClass getNewObj() {
         Scanner scanner = new Scanner(System.in);
         SchoolClass schoolClass = new SchoolClass();
 
@@ -89,12 +82,35 @@ public class SchoolClassSubMenu extends BaseSubMenu<SchoolClass> {
         System.out.print("Enter class room: ");
         schoolClass.setClassroom(scanner.nextLine());
 
-        System.out.print("Enter a day on which the class is held: ");
-        schoolClass.setDay(scanner.nextLine());
+        String day;
+        do {
+            System.out.print("Enter a day on which the class is held: ");
+            day = scanner.nextLine();
 
-        System.out.print("Enter the time on which the class starts: ");
-        schoolClass.setTime(scanner.nextLine());
+            if (!isValidDay(day)) {
+                System.out.println("Invalid day");
+            }
+        } while (!isValidDay(day));
+        schoolClass.setDay(day);
+
+        String time;
+        do {
+            System.out.print("Enter the time on which the class starts in HH:mm format: ");
+            time = scanner.nextLine();
+
+            if (!isValidTime(time)) {
+                System.out.println("Invalid time");
+            }
+        } while (!isValidTime(time));
+        schoolClass.setTime(time);
 
         return schoolClass;
+    }
+
+    private void printClasses() {
+        classes = controller.getAll();
+        for (SchoolClass schoolClass : classes) {
+            System.out.println(schoolClass.getName());
+        }
     }
 }
