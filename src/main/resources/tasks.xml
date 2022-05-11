@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<task-root>
+    <task>
+        <Name>teszt 3</Name>
+        <Status>fsakdlfjlsa</Status>
+        <Description>fjksalf</Description>
+        <DueDate>fsadklfsakdl</DueDate>
+    </task>
+    <task>
+        <Name>fdfdfs</Name>
+        <Status>done</Status>
+        <Description>fasfsdf</Description>
+        <DueDate>12/12/2020</DueDate>
+    </task>
+</task-root>

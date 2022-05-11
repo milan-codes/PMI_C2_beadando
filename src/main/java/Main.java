@@ -1,5 +1,8 @@
-import menu.Menu;
-import menu.MenuType;
+import view.Menu;
+import view.MenuType;
+import view.submenu.ExamSubMenu;
+import view.submenu.SchoolClassSubMenu;
+import view.submenu.TaskSubMenu;
 
 public class Main {
     private static final Menu menu = Menu.getInstance();
@@ -8,65 +11,105 @@ public class Main {
         do {
             int mainMenu = menu.show(MenuType.MAIN);
             switch (mainMenu) {
-                case 1: handleClasses(); break;
-                case 2: handleAssignments(); break;
-                case 3: handleExams(); break;
-                case 4: System.exit(0);
-                default: System.out.println("Invalid input");
+                case 1:
+                    handleClasses();
+                    break;
+                case 2:
+                    handleTasks();
+                    break;
+                case 3:
+                    handleExams();
+                    break;
+                case 4:
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid input");
             }
-        } while(true);
+        } while (true);
     }
 
     static void handleClasses() {
+        SchoolClassSubMenu schoolClassSubMenu = new SchoolClassSubMenu();
         do {
             int classesMenu = menu.show(MenuType.CLASS);
             switch (classesMenu) {
                 case 1:
-                    System.out.println("TODO: Show all classes"); break;
+                    schoolClassSubMenu.onGetAll();
+                    break;
                 case 2:
-                    System.out.println("TODO: Add class"); break;
+                    schoolClassSubMenu.onGetByName();
+                    break;
                 case 3:
-                    System.out.println("TODO: Edit class"); break;
+                    schoolClassSubMenu.onCreate();
+                    break;
                 case 4:
-                    System.out.println("TODO: Remove class"); break;
-                case 5: return;
-                default: System.out.println("Invalid input");
+                    schoolClassSubMenu.onUpdate();
+                    break;
+                case 5:
+                    schoolClassSubMenu.onDelete();
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Invalid input");
             }
-        } while(true);
+        } while (true);
 
     }
-    static void handleAssignments() {
+
+    static void handleTasks() {
+        TaskSubMenu taskSubMenu = new TaskSubMenu();
         do {
-            int assignmentsMenu = menu.show(MenuType.ASSIGNMENT);
-            switch (assignmentsMenu) {
+            int tasksMenu = menu.show(MenuType.TASK);
+            switch (tasksMenu) {
                 case 1:
-                    System.out.println("TODO: Show all assignments"); break;
+                    taskSubMenu.onGetAll();
+                    break;
                 case 2:
-                    System.out.println("TODO: Add assignment"); break;
+                    taskSubMenu.onGetByName();
+                    break;
                 case 3:
-                    System.out.println("TODO: Edit assignment"); break;
+                    taskSubMenu.onCreate();
+                    break;
                 case 4:
-                    System.out.println("TODO: Remove assignment"); break;
-                case 5: return;
-                default: System.out.println("Invalid input");
+                    taskSubMenu.onUpdate();
+                    break;
+                case 5:
+                    taskSubMenu.onDelete();
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Invalid input");
             }
-        } while(true);
+        } while (true);
     }
+
     static void handleExams() {
+        ExamSubMenu examSubMenu = new ExamSubMenu();
         do {
             int examsMenu = menu.show(MenuType.EXAM);
             switch (examsMenu) {
                 case 1:
-                    System.out.println("TODO: Show all exams"); break;
+                    examSubMenu.onGetAll();
+                    break;
                 case 2:
-                    System.out.println("TODO: Add exam"); break;
+                    examSubMenu.onGetByName();
+                    break;
                 case 3:
-                    System.out.println("TODO: Edit exam"); break;
+                    examSubMenu.onCreate();
+                    break;
                 case 4:
-                    System.out.println("TODO: Remove exam"); break;
-                case 5: return;
-                default: System.out.println("Invalid input");
+                    examSubMenu.onUpdate();
+                    break;
+                case 5:
+                    examSubMenu.onDelete();
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Invalid input");
             }
-        } while(true);
+        } while (true);
     }
 }
